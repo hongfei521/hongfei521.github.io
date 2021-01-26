@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="个人博客制作, 马鸿飞的博客">
+    <meta name="keywords" content="指针(一), 马鸿飞的博客">
     <meta name="description" content="Cease to struggle and you cease to live.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>个人博客制作 | 马鸿飞的博客</title>
+    <title>指针(一) | 马鸿飞的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -354,12 +354,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">个人博客制作</h1>
+                    <h1 class="description center-align post-title">指针(一)</h1>
                 </div>
             </div>
         </div>
@@ -475,12 +475,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">C语言</span>
                             </a>
                         
-                            <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                                <span class="chip bg-color">前端</span>
+                            <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">程序设计</span>
                             </a>
                         
                     </div>
@@ -504,7 +504,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-23
+                    2021-01-26
                 </div>
                 
 
@@ -513,14 +513,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    782
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -540,71 +540,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="搭建个人Hexo博客-基础篇"><a href="#搭建个人Hexo博客-基础篇" class="headerlink" title="搭建个人Hexo博客-基础篇"></a>搭建个人Hexo博客-基础篇</h1><h2 id="搭建教程"><a href="#搭建教程" class="headerlink" title="搭建教程"></a>搭建教程</h2><h3 id="1-搭建博客所需材料"><a href="#1-搭建博客所需材料" class="headerlink" title="1. 搭建博客所需材料"></a>1. 搭建博客所需材料</h3><p>你，电脑，不怕麻烦的脑子</p>
-<h3 id="2-准备环境"><a href="#2-准备环境" class="headerlink" title="2. 准备环境"></a>2. 准备环境</h3><ul>
-<li>Node.js:   <a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js官网</a></li>
-<li>Git: <a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a></li>
-</ul>
-<p>Node.js选择LTS版（长期支持版）就可以了</p>
-<blockquote>
-<p>Node.js 是一个基于 Chrome V8 引擎的 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/JavaScript/321142">JavaScript</a> 运行环境。</p>
-</blockquote>
-<blockquote>
-<p>Git(读音为/gɪt/。bai)是一个开源的分布du式版本控制系统，可以有效zhi、高速地处理从很小到到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
-</blockquote>
-<p>首先第一步先安装Git：<a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a> </p>
-<p><img src="https://img-blog.csdnimg.cn/20210124210506154.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MjAyOTYwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="图"></p>
-<p>点击箭头所示处</p>
-<p><img src="https://img-blog.csdnimg.cn/20210124210710832.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MjAyOTYwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="tu2"></p>
-<p>安装下载就好了。</p>
-<p>接下来是Node.js<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">node.js官网</a> 选择LTS版（长期支持版）就可以了</p>
-<p>安装好后就可以按windows键+R然后输入cmd运行</p>
-<p>在指示框里你可以通过以下指令来查看其是否安装好</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v  #查看node版本</span><br><span class="line">npm -v   #查看npm版本</span><br></pre></td></tr></table></figure>
-<p>效果是这样的</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/E6911725B64A40B987DA8A5DB854B248?method=download&shareKey=ca49c4c54d7b8cb58bea4a9767726aff"></p>
-<p>接下来就是开始正式的安装了，在正式搭建开始前，你还需要借助npm来安装cnpm，即国内镜像源，因为众所周知的原因<del>（墙太高）</del>，原npm下载速度太过缓慢，所以改用cnpm会更快</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;http:&#x2F;&#x2F;registry.npm.taobao.org	#安装淘宝的cnpm</span><br></pre></td></tr></table></figure>
-<p>同样你可以借助查看软件版本来检查是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v #查看cnpm版本</span><br></pre></td></tr></table></figure>
-<h3 id="3-开始搭建"><a href="#3-开始搭建" class="headerlink" title="3.开始搭建"></a>3.开始搭建</h3><p>搭建过程十分简单</p>
-<h4 id="Ⅰ-本地部署"><a href="#Ⅰ-本地部署" class="headerlink" title="Ⅰ.本地部署"></a>Ⅰ.本地部署</h4><ol>
-<li><h4 id="创建一个用来存放博客的文件夹，例如blog，具体放在那里自己看，我放在了D盘"><a href="#创建一个用来存放博客的文件夹，例如blog，具体放在那里自己看，我放在了D盘" class="headerlink" title="创建一个用来存放博客的文件夹，例如blog，具体放在那里自己看，我放在了D盘"></a>创建一个用来存放博客的文件夹，例如blog，具体放在那里自己看，我放在了D盘</h4></li>
+                <h1 id="指针详解"><a href="#指针详解" class="headerlink" title="指针详解"></a>指针详解</h1><h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>C语言里，变量存放在内存中，而<strong>内存其实就是一组有序字节组成的数组</strong>，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，而指针便是保存这个地址的变量。也就是说：<strong>指针是一种保存变量地址的变量</strong>。</p>
+<p>　　前面已经提到内存其实就是一组有序字节组成的数组，数组中，每个字节大大小固定，都是 8bit。对这些连续的字节从 0 开始进行编号，每个字节都有唯一的一个编号，这个编号就是内存地址。示意如下图：<img src="https://img-blog.csdnimg.cn/20210124093955614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MjAyOTYwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>　　这是一个 4GB 的内存，可以存放 2^32 个字节的数据。左侧的连续的十六进制编号就是内存地址，每个内存地址对应一个字节的内存空间。而指针变量保存的就是这个编号，也即内存地址。</p>
+<h2 id="为什么要使用指针"><a href="#为什么要使用指针" class="headerlink" title="为什么要使用指针"></a>为什么要使用指针</h2><p>在C语言中，指针的使用非常广泛，因为使用指针往往可以生成更高效、更紧凑的代码。总的来说，使用指针有如下好处：</p>
+<ol>
+<li><p>指针的使用使得不同区域的代码可以轻易的共享内存数据，这样可以使程序更为快速高效；</p>
+</li>
+<li><p>C语言中一些复杂的数据结构往往需要使用指针来构建，如链表、二叉树等；</p>
+</li>
+<li><p>C语言是传值调用，而有些操作传值调用是无法完成的，如通过被调函数修改调用函数的对象，但是这种操作可以由指针来完成，而且并不违背传值调用。</p>
+</li>
 </ol>
-<p><img src="https://note.youdao.com/yws/api/personal/file/5874A3A668064F469FA2C1461297E2B2?method=download&shareKey=08f11eca41e6b2cc612ab6e09d456811"></p>
-<p>当然你也可以在cmd命令行界面下进行创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;d d:&#x2F;   #进入D盘</span><br><span class="line">mkdir blog	#创建blog目录</span><br><span class="line">cd blog     #进入D盘中的blog文件夹</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><h4 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h4></li>
-</ol>
-<p>在准备环节我们已经安装了cnpm，所以以下就使用cnpm来安装hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli    #安装hexo框架</span><br></pre></td></tr></table></figure>
-<p>你也可以通过npm来安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli    #通过npm安装hexo框架</span><br></pre></td></tr></table></figure>
-<p>同样，你可以通过检查版来确认是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v #查看hexo版本</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><h4 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h4></li>
-</ol>
-<p>使用cmd或git bush进入d:/blog，下面是git bush的方法（个人推荐）</p>
-<p><img src="https://img-blog.csdnimg.cn/20210124212252479.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MjAyOTYwMA==,size_16,color_FFFFFF,t_70#pic_center"></p>
-<p>进行博客初始化操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init #初始化博客</span><br></pre></td></tr></table></figure>
-<p>初始化完成后会生成一些文件</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/437EC37813C84688916249B75923BB9F?method=download&shareKey=95ef7991b5eb6d4005c11c6b23ff9de3"></p>
-<p>以下是Hexo官方给出的初始化完成后，指定文件夹的目录下的文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
-<p>hexo博客根目录下的_config.yml是博客的配置文件，后续可以对它进行修改，来实现一些功能</p>
-<p>我们这里暂且只实现一些简单功能，下一篇我会讲美化装主题</p>
-<p>如果你对其他文件或文件夹有疑惑，你可以通过查阅<a target="_blank" rel="noopener" href="https://hexo.bootcss.com/docs/setup.html">Hexo官方文档-建站</a>来了解</p>
-<ol start="4">
-<li><h4 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h4></li>
-</ol>
-<blockquote>
-<p>你可以参考<a target="_blank" rel="noopener" href="https://hexo.bootcss.com/docs/configuration.html">Hexo官方文档-配置</a>对你的配置文件进行修改</p>
-</blockquote>
-<p>今天就先写在这里，谢谢观看</p>
-
+<h2 id="三、如何声明一个指针"><a href="#三、如何声明一个指针" class="headerlink" title="三、如何声明一个指针"></a>三、如何声明一个指针</h2><h3 id="3-1声明并初始化一个指针"><a href="#3-1声明并初始化一个指针" class="headerlink" title="3.1声明并初始化一个指针"></a>3.1声明并初始化一个指针</h3><p>指针其实就是一个变量，指针的声明方式与一般的变量声明方式没太大区别：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p;        <span class="comment">// 声明一个 int 类型的指针 p</span></span><br><span class="line"><span class="keyword">char</span> *p        <span class="comment">// 声明一个 char 类型的指针 p</span></span><br><span class="line"><span class="keyword">int</span> *arr[<span class="number">10</span>]   <span class="comment">// 声明一个指针数组，该数组有10个元素，其中每个元素都是一个指向 int 类型对象的指针</span></span><br><span class="line"><span class="keyword">int</span> (*arr)[<span class="number">10</span>] <span class="comment">// 声明一个数组指针，该指针指向一个 int 类型的一维数组</span></span><br><span class="line"><span class="keyword">int</span> **p;       <span class="comment">// 声明一个指针 p ，该指针指向一个 int 类型的指针</span></span><br></pre></td></tr></table></figure>
+<p>指针的声明比普通变量的声明多了一个一元运算符 “<em>”。运算符 “</em>” 是间接寻址或者间接引用运算符。当它作用于指针时，将访问指针所指向的对象。在上述的声明中： p 是一个指针，保存着一个地址，该地址指向内存中的一个变量； *p 则会访问这个地址所指向的变量。</p>
+<p>　　声明一个指针变量并不会自动分配任何内存。在对指针进行间接访问之前，指针必须进行初始化：或是使他指向现有的内存，或者给他动态分配内存，否则我们并不知道指针指向哪儿，这将是一个很严重的问题，稍后会讨论这个问题。初始化操作如下：
+　　</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 方法1：使指针指向现有的内存 */</span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> *p = &amp;x;　　<span class="comment">// 指针 p 被初始化，指向变量 x ，其中取地址符 &amp; 用于产生操作数内存地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 方法2：动态分配内存给指针 */</span></span><br><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line">p = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="number">10</span>);　　　　<span class="comment">// malloc 函数用于动态分配内存</span></span><br><span class="line"><span class="built_in">free</span>(p);　　　　<span class="comment">// free 函数用于释放一块已经分配的内存，常与 malloc 函数一起使用，要使用这两个函数需要头文件 stdlib.h</span></span><br></pre></td></tr></table></figure>
+<p>指针的初始化实际上就是给指针一个合法的地址，让程序能够清楚地知道指针指向哪儿。</p>
+<h3 id="3-2-未初始化和非法的指针"><a href="#3-2-未初始化和非法的指针" class="headerlink" title="3.2 未初始化和非法的指针"></a>3.2 未初始化和非法的指针</h3><p>如果一个指针没有被初始化，那么程序就不知道它指向哪里。它可能指向一个非法地址，这时，程序会报错，在 Linux 上，错误类型是 Segmentation fault（core dumped），提醒我们段违例或内存错误。它也可能指向一个合法地址，实际上，这种情况更严重，你的程序或许能正常运行，但是这个没有被初始化的指针所指向的那个位置的值将会被修改，而你并无意去修改它。用一个例子简单的演示一下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *p;</span><br><span class="line">    *p = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,*p);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个程序可以编译通过，但是运行的话会报错，报错信息如下：<br><img src="https://img-blog.csdnimg.cn/20210124111709324.png#pic_center" alt="在这里插入图片描述"></p>
+<p>要想使这个程序运行起来，需要先对指针 p 进行初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">int</span> *p = &amp;x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,*p);</span><br><span class="line">　  *p = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,*p);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -630,7 +588,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hongfei521.github.io/2021/01/23/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B6%E4%BD%9C/">http://hongfei521.github.io/2021/01/23/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B6%E4%BD%9C/</a>
+                    <a href="http://hongfei521.github.io/2021/01/26/%E6%8C%87%E9%92%88/">http://hongfei521.github.io/2021/01/26/%E6%8C%87%E9%92%88/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -668,12 +626,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">C语言</span>
                                 </a>
                             
-                                <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                                    <span class="chip bg-color">前端</span>
+                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">程序设计</span>
                                 </a>
                             
                         </div>
@@ -1108,9 +1066,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/01/26/%E6%8C%87%E9%92%88/">
                     <div class="card-image">
@@ -1128,9 +1087,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1143,6 +1102,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1162,7 +1122,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/01/23/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B6%E4%BD%9C/">
@@ -1196,7 +1156,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
