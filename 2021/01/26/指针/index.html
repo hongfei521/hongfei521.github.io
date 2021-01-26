@@ -544,7 +544,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="指针详解"><a href="#指针详解" class="headerlink" title="指针详解"></a>指针详解</h1><h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>C语言里，变量存放在内存中，而<strong>内存其实就是一组有序字节组成的数组</strong>，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，而指针便是保存这个地址的变量。也就是说：<strong>指针是一种保存变量地址的变量</strong>。</p>
-<p>　　前面已经提到内存其实就是一组有序字节组成的数组，数组中，每个字节大大小固定，都是 8bit。对这些连续的字节从 0 开始进行编号，每个字节都有唯一的一个编号，这个编号就是内存地址。示意如下图：<img src="https://img-blog.csdnimg.cn/20210124093955614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MjAyOTYwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>　　这是一个 4GB 的内存，可以存放 2^32 个字节的数据。左侧的连续的十六进制编号就是内存地址，每个内存地址对应一个字节的内存空间。而指针变量保存的就是这个编号，也即内存地址。</p>
+<p>　　前面已经提到内存其实就是一组有序字节组成的数组，数组中，每个字节大大小固定，都是 8bit。对这些连续的字节从 0 开始进行编号，每个字节都有唯一的一个编号，这个编号就是内存地址。示意如下图：<img src="https://img-blog.csdnimg.cn/20210124093955614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MjAyOTYwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>　　这是一个 4GB 的内存，可以存放 2^32^ 个字节的数据。左侧的连续的十六进制编号就是内存地址，每个内存地址对应一个字节的内存空间。而指针变量保存的就是这个编号，也即内存地址。</p>
 <h2 id="二、为什么要使用指针"><a href="#二、为什么要使用指针" class="headerlink" title="二、为什么要使用指针"></a>二、为什么要使用指针</h2><p>在C语言中，指针的使用非常广泛，因为使用指针往往可以生成更高效、更紧凑的代码。总的来说，使用指针有如下好处：</p>
 <ol>
 <li><p>指针的使用使得不同区域的代码可以轻易的共享内存数据，这样可以使程序更为快速高效；</p>
