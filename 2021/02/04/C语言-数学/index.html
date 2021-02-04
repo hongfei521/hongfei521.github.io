@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="指针(一), 马鸿飞的博客">
+    <meta name="keywords" content="C语言-数学-位运算, 马鸿飞的博客">
     <meta name="description" content="Cease to struggle and you cease to live.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>指针(一) | 马鸿飞的博客</title>
+    <title>C语言-数学-位运算 | 马鸿飞的博客</title>
     <link rel="icon" type="image/png" href="https://hongfei521.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://hongfei521.github.io/libs/awesome/css/all.css">
@@ -354,12 +354,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://hongfei521.github.io/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://hongfei521.github.io/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">指针(一)</h1>
+                    <h1 class="description center-align post-title">C语言-数学-位运算</h1>
                 </div>
             </div>
         </div>
@@ -483,6 +483,10 @@
                                 <span class="chip bg-color">程序设计</span>
                             </a>
                         
+                            <a href="/tags/ACM/">
+                                <span class="chip bg-color">ACM</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -491,8 +495,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" class="post-category">
-                                学习经历
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" class="post-category">
+                                个人笔记
                             </a>
                         
                     </div>
@@ -504,7 +508,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-02-04
                 </div>
                 
 
@@ -513,14 +517,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -543,101 +547,134 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="指针详解"><a href="#指针详解" class="headerlink" title="指针详解"></a>指针详解</h1><h2 id="一、什么是指针"><a href="#一、什么是指针" class="headerlink" title="一、什么是指针"></a>一、什么是指针</h2><p>C语言里，变量存放在内存中，而<strong>内存其实就是一组有序字节组成的数组</strong>，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，而指针便是保存这个地址的变量。也就是说：<strong>指针是一种保存变量地址的变量</strong>。</p>
-<p>　　前面已经提到内存其实就是一组有序字节组成的数组，数组中，每个字节大大小固定，都是 8bit。对这些连续的字节从 0 开始进行编号，每个字节都有唯一的一个编号，这个编号就是内存地址。示意如下图：<img src="https://img-blog.csdnimg.cn/20210124093955614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MjAyOTYwMA==,size_16,color_FFFFFF,t_70#pic_center"></p>
-<p>　　这是一个 4GB 的内存，可以存放 2^32^个字节的数据。左侧的连续的十六进制编号就是内存地址，每个内存地址对应一个字节的内存空间。而指针变量保存的就是这个编号，也即内存地址。</p>
-<h2 id="二、为什么要使用指针"><a href="#二、为什么要使用指针" class="headerlink" title="二、为什么要使用指针"></a>二、为什么要使用指针</h2><p>在C语言中，指针的使用非常广泛，因为使用指针往往可以生成更高效、更紧凑的代码。总的来说，使用指针有如下好处：</p>
+                <p>位运算就是基于整数的二进制表示进行的运算。由于计算机内部就是以二进制来存储数据，位运算是相当快的。</p>
+<p>常用的运算符共 6 种，分别为与（ <code>&amp;</code> ）、或（ <code>|</code> ）、异或（ <code>^</code> ）、取反（ <code>~</code> ）、左移（ <code>&lt;&lt;</code> ）和右移（ <code>&gt;&gt;</code> ）。</p>
+<h1 id="与、或、异或"><a href="#与、或、异或" class="headerlink" title="与、或、异或"></a>与、或、异或</h1><p>与（ <code>&amp;</code> ）或（ <code>|</code> ）和异或（ <code>^</code> ）这三者都是两数间的运算，因此在这里一起讲解。</p>
+<p>它们都是将两个整数作为二进制数，对二进制表示中的每一位逐一运算。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;</code></td>
+<td>只有两个对应位都为 1 时才为 1</td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>只有两个对应位不同时才为 1</td>
+</tr>
+</tbody></table>
+<p>异或运算的逆运算是它本身，也就是说两次异或同一个数最后结果不变，即<strong>a^b^b=a</strong></p>
+<p>举例：<br>$$<br>5=(101)_2\<br>6=(110)_2\<br>5&amp;6=(100)_2=4\<br>5|6=(111)_2=7\<br>5\text{^}6=(011)_2=3<br>$$</p>
+<h1 id="取反"><a href="#取反" class="headerlink" title="取反"></a>取反</h1><p>取反是对一个数num 进行的计算，即单目运算。</p>
+<p><code>~</code>把num的补码中的 0 和 1 全部取反（0 变为 1，1 变为 0）。有符号整数的符号位在 <code>~</code> 运算中同样会取反。</p>
+<p>补码：在二进制表示下，正数和 0 的补码为其本身，负数的补码是将其对应正数按位取反后加一。</p>
+<p>举例（有符号整数）：<br>$$<br>5=(00000101)_2\<br>\text{<del>}5=(11111010)_2=-6\-5的补码=(11111011)_2\\text{</del>}(-5)=(00000100)_2=4<br>$$</p>
+<h1 id="左移和右移"><a href="#左移和右移" class="headerlink" title="左移和右移"></a>左移和右移</h1><p><code>num &lt;&lt; i</code> 表示将<em>num</em> 的二进制表示向左移动i位所得的值。</p>
+<p><code>num &gt;&gt; i</code> 表示将<em>num</em> 的二进制表示向右移动i位所得的值。</p>
+<p>举例：<br>$$<br>11=(00001011)_2\11&lt;&lt;3=(01011000)_2=88\11&gt;&gt;2=(00000010)_2=2\<br>$$<br>移位运算中如果出现如下情况，则其行为未定义：</p>
 <ol>
-<li><p>指针的使用使得不同区域的代码可以轻易的共享内存数据，这样可以使程序更为快速高效；</p>
-</li>
-<li><p>C语言中一些复杂的数据结构往往需要使用指针来构建，如链表、二叉树等；</p>
-</li>
-<li><p>C语言是传值调用，而有些操作传值调用是无法完成的，如通过被调函数修改调用函数的对象，但是这种操作可以由指针来完成，而且并不违背传值调用。</p>
-</li>
+<li>右操作数（即移位数）为负值；</li>
+<li>右操作数大于等于左操作数的位数；</li>
 </ol>
-<h2 id="三、如何声明一个指针"><a href="#三、如何声明一个指针" class="headerlink" title="三、如何声明一个指针"></a>三、如何声明一个指针</h2><h3 id="3-1声明并初始化一个指针"><a href="#3-1声明并初始化一个指针" class="headerlink" title="3.1声明并初始化一个指针"></a>3.1声明并初始化一个指针</h3><p>指针其实就是一个变量，指针的声明方式与一般的变量声明方式没太大区别：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>        <span class="token comment">// 声明一个 int 类型的指针 p</span>
-<span class="token keyword">char</span> <span class="token operator">*</span>p        <span class="token comment">// 声明一个 char 类型的指针 p</span>
-<span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span>   <span class="token comment">// 声明一个指针数组，该数组有10个元素，其中每个元素都是一个指向 int 类型对象的指针</span>
-<span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>arr<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token comment">// 声明一个数组指针，该指针指向一个 int 类型的一维数组</span>
-<span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>p<span class="token punctuation">;</span>       <span class="token comment">// 声明一个指针 p ，该指针指向一个 int 类型的指针</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>指针的声明比普通变量的声明多了一个一元运算符 “<em>”。运算符 “</em>” 是间接寻址或者间接引用运算符。当它作用于指针时，将访问指针所指向的对象。在上述的声明中： p 是一个指针，保存着一个地址，该地址指向内存中的一个变量； *p 则会访问这个地址所指向的变量。</p>
-<p>　　声明一个指针变量并不会自动分配任何内存。在对指针进行间接访问之前，指针必须进行初始化：或是使他指向现有的内存，或者给他动态分配内存，否则我们并不知道指针指向哪儿，这将是一个很严重的问题，稍后会讨论这个问题。初始化操作如下：
-　　</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/* 方法1：使指针指向现有的内存 */</span>
-<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>x<span class="token punctuation">;</span>　　<span class="token comment">// 指针 p 被初始化，指向变量 x ，其中取地址符 &amp; 用于产生操作数内存地址</span>
-
-<span class="token comment">/* 方法2：动态分配内存给指针 */</span>
-<span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
-p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　<span class="token comment">// malloc 函数用于动态分配内存</span>
-<span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　<span class="token comment">// free 函数用于释放一块已经分配的内存，常与 malloc 函数一起使用，要使用这两个函数需要头文件 stdlib.h</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>指针的初始化实际上就是给指针一个合法的地址，让程序能够清楚地知道指针指向哪儿。</p>
-<h3 id="3-2-未初始化和非法的指针"><a href="#3-2-未初始化和非法的指针" class="headerlink" title="3.2 未初始化和非法的指针"></a>3.2 未初始化和非法的指针</h3><p>如果一个指针没有被初始化，那么程序就不知道它指向哪里。它可能指向一个非法地址，这时，程序会报错，在 Linux 上，错误类型是 Segmentation fault（core dumped），提醒我们段违例或内存错误。它也可能指向一个合法地址，实际上，这种情况更严重，你的程序或许能正常运行，但是这个没有被初始化的指针所指向的那个位置的值将会被修改，而你并无意去修改它。用一个例子简单的演示一下：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
-    <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>  
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这个程序可以编译通过，但是运行的话会报错，报错信息如下：<br><img src="https://img-blog.csdnimg.cn/20210124111709324.png#pic_center"></p>
-<p>要想使这个程序运行起来，需要先对指针 p 进行初始化：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  
-    <span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>x<span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-　  <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>  
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这段代码的输出结果如下：</p>
-<p><img src="https://img2018.cnblogs.com/blog/765389/201809/765389-20180917212250007-280056505.png"></p>
-<p>可以看到，对指针进行初始化后，便可以正常对指针进行赋值了。 </p>
-<h3 id="3-3-NULL指针"><a href="#3-3-NULL指针" class="headerlink" title="3.3 NULL指针"></a><strong>3.3 NULL指针</strong></h3><p><strong>NULL 指针是一个特殊的指针变量，表示不指向任何东西</strong>。可以通过给一个指针赋一个零值来生成一个 NULL 指针。 </p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"p的地址为%p\n"</span><span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">/***************
- * 程序输出：
- * p的地址为（nil）
-***************/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到指针的地址为nil，即空值，也可以理解为0。在大多数的操作系统上，程序不允许访问地址为 0 的内存，因为该内存是为操作系统保留的。但是，内存地址 0 有一个特别重要的意义，它表明改指针不指向一个可访问的内存位置。</p>
-<h2 id="四、指针的运算"><a href="#四、指针的运算" class="headerlink" title="四、指针的运算"></a><strong>四、指针的运算</strong></h2><p>C 指针的算术运算只限于两种形式：</p>
+<p>例如，对于 <code>int</code> 类型的变量 <code>a</code> ， <code>a&lt;&lt;-1</code> 和 <code>a&lt;&lt;32</code> 都是未定义的。</p>
+<p>对于左移操作，需要确保移位后的结果能被原数的类型容纳，否则行为也是未定义的。对一个负数执行左移操作也未定义。</p>
+<p>对于右移操作，右侧多余的位将会被舍弃，而左侧较为复杂：对于无符号数，会在左侧补 0；而对于有符号数，则会用最高位的数（其实就是符号位，非负数为 0，负数为 1）补齐。</p>
+<h1 id="复合赋值位运算符"><a href="#复合赋值位运算符" class="headerlink" title="复合赋值位运算符"></a>复合赋值位运算符</h1><p>和 <code>+=</code> , <code>-=</code> 等运算符类似，位运算也有复合赋值运算符： <code>&amp;=</code> , <code>|=</code> , <code>^=</code> , <code>&lt;&lt;=</code> , <code>&gt;&gt;=</code> 。（取反是单目运算，所以没有。）</p>
+<h1 id="关于优先级"><a href="#关于优先级" class="headerlink" title="关于优先级"></a>关于优先级</h1><p>位运算的优先级低于算术运算符（除了取反），而按位与、按位或及异或低于比较运算符，所以使用时需多加注意，在必要时添加括号。</p>
+<h1 id="位运算的应用"><a href="#位运算的应用" class="headerlink" title="位运算的应用"></a>位运算的应用</h1><p>位运算一般有三种作用：</p>
 <ol>
-<li>指针 +/- 整数 ：</li>
+<li>高效地进行某些运算，代替其它低效的方式。</li>
+<li>表示集合。</li>
+<li>题目本来就要求进行位运算。</li>
 </ol>
-<p>可以对指针变量 p 进行 p++、p–、p + i 等操作，所得结果也是一个指针，只是指针所指向的内存地址相比于 p 所指的内存地址前进或者后退了 i 个操作数。用一张图来说明一下：</p>
-<p><img src="https://img2020.cnblogs.com/blog/765389/202008/765389-20200819232730331-448301145.png"></p>
-<p>在上图中，10000000等是内存地址的十六进制表示（数值是假定的），p 是一个 int 类型的指针，指向内存地址 0x10000008 处。则 p++ 将指向与 p 相邻的下一个内存地址，由于 int 型数据占 4 个字节，因此 p++ 所指的内存地址为 1000000c。其余类推。不过要注意的是，这种运算并不会改变指针变量 p 自身的地址，只是改变了它所指向的地址。</p>
-<ol start="2">
-<li>指针 - 指针</li>
-</ol>
-<p>只有当两个指针都指向同一个数组中的元素时，才允许从一个指针减去另一个指针。两个指针相减的结果的类型是 ptrdiff_t，它是一种有符号整数类型。减法运算的值是两个指针在内存中的距离（以数组元素的长度为单位，而不是以字节为单位），因为减法运算的结果将除以数组元素类型的长度。举个例子：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> sub<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> <span class="token operator">*</span>p1 <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> <span class="token operator">*</span>p2 <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    sub <span class="token operator">=</span> p2<span class="token operator">-</span>p1<span class="token punctuation">;</span>                                                                            
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>sub<span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　<span class="token comment">// 输出结果为 6</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<p>需要注意的是，用位运算代替其它运算方式（即第一种应用）在很多时候并不能带来太大的优化，反而会使代码变得复杂，使用时需要斟酌。（但像“乘 2 的非负整数次幂”和“除以 2 的非负整数次幂”就最好使用位运算，因为此时使用位运算可以优化复杂度。）</p>
+<h2 id="乘-2-的非负整数次幂"><a href="#乘-2-的非负整数次幂" class="headerlink" title="乘 2 的非负整数次幂"></a>乘 2 的非负整数次幂</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">mulPowerOfTwo</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 计算 n*(2^m)</span>
+  <span class="token keyword">return</span> n <span class="token operator">&lt;&lt;</span> m<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="除以-2-的非负整数次幂"><a href="#除以-2-的非负整数次幂" class="headerlink" title="除以 2 的非负整数次幂"></a>除以 2 的非负整数次幂</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">divPowerOfTwo</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 计算 n/(2^m)</span>
+  <span class="token keyword">return</span> n <span class="token operator">>></span> m<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>我们平常写的除法是向 0 取整，而这里的右移是向下取整（注意这里的区别），即当数大于等于 0 时两种方法等价，当数小于 0 时会有区别，如： <code>-1 / 2</code> 的值为0 ，而 <code>-1 &gt;&gt; 1</code> 的值为-1 。</p>
+</blockquote>
+<h2 id="判断一个数是不是-2-的非负整数次幂"><a href="#判断一个数是不是-2-的非负整数次幂" class="headerlink" title="判断一个数是不是 2 的非负整数次幂"></a>判断一个数是不是 2 的非负整数次幂</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isPowerOfTwo</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> n <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="对-2-的非负整数次幂取模"><a href="#对-2-的非负整数次幂取模" class="headerlink" title="对 2 的非负整数次幂取模"></a>对 2 的非负整数次幂取模</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">modPowerOfTwo</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> mod<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> x <span class="token operator">&amp;</span> <span class="token punctuation">(</span>mod <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="取绝对值"><a href="#取绝对值" class="headerlink" title="取绝对值"></a>取绝对值</h2><p>在某些机器上，效率比 <code>n &gt; 0 ? n : -n</code> 高。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">Abs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">^</span> <span class="token punctuation">(</span>n <span class="token operator">>></span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>n <span class="token operator">>></span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">/* n>>31 取得 n 的符号，若 n 为正数，n>>31 等于 0，若 n 为负数，n>>31 等于 -1
+     若 n 为正数 n^0=n, 数不变，若 n 为负数有 n^(-1)
+     需要计算 n 和 -1 的补码，然后进行异或运算，
+     结果 n 变号并且为 n 的绝对值减 1，再减去 -1 就是绝对值 */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="取两个数的最大-最小值"><a href="#取两个数的最大-最小值" class="headerlink" title="取两个数的最大/最小值"></a>取两个数的最大/最小值</h2><p>在某些机器上，效率比 <code>a &gt; b ? a : b</code> 高。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 如果 a>=b,(a-b)>>31 为 0，否则为 -1</span>
+<span class="token keyword">int</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> b <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">|</span> a <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token operator">~</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> a <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">|</span> b <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token operator">~</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="判断符号是否相同"><a href="#判断符号是否相同" class="headerlink" title="判断符号是否相同"></a>判断符号是否相同</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isSameSign</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 有 0 的情况例外</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>x <span class="token operator">^</span> y<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="交换两个数"><a href="#交换两个数" class="headerlink" title="交换两个数"></a>交换两个数</h2><blockquote>
+<p><strong>该方法具有局限性</strong></p>
+<p>这种方式只能用来交换两个整数，使用范围有限。</p>
+<p>对于一般情况下的交换操作，推荐直接调用 <code>algorithm</code> 库中的 <code>std::swap</code> 函数。</p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> a <span class="token operator">^=</span> b <span class="token operator">^=</span> a <span class="token operator">^=</span> b<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="获取一个数二进制的某一位"><a href="#获取一个数二进制的某一位" class="headerlink" title="获取一个数二进制的某一位"></a>获取一个数二进制的某一位</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 获取 a 的第 b 位，最低位编号为 0</span>
+<span class="token keyword">int</span> <span class="token function">getBit</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">>></span> b<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="将一个数二进制的某一位设置为-0"><a href="#将一个数二进制的某一位设置为-0" class="headerlink" title="将一个数二进制的某一位设置为 0"></a>将一个数二进制的某一位设置为 0</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 将 a 的第 b 位设置为 0 ，最低位编号为 0</span>
+<span class="token keyword">int</span> <span class="token function">unsetBit</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> a <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="将一个数二进制的某一位设置为-1"><a href="#将一个数二进制的某一位设置为-1" class="headerlink" title="将一个数二进制的某一位设置为 1"></a>将一个数二进制的某一位设置为 1</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 将 a 的第 b 位取反 ，最低位编号为 0</span>
+<span class="token keyword">int</span> <span class="token function">flapBit</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> a <span class="token operator">^</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="表示集合"><a href="#表示集合" class="headerlink" title="表示集合"></a>表示集合</h2><p>一个数的二进制表示可以看作是一个集合（0 表示不在集合中，1 表示在集合中）。比如集合 <code>&#123;1, 3, 4, 8&#125;</code> ，可以表示成(100011010)$_2$。而对应的位运算也就可以看作是对集合进行的操作。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>集合表示</th>
+<th>位运算语句</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>交集</td>
+<td>$ a \cap b$</td>
+<td>a &amp; b</td>
+</tr>
+<tr>
+<td>并集</td>
+<td>$ a \cup b$</td>
+<td>a|b</td>
+</tr>
+<tr>
+<td>补集</td>
+<td>$ \bar{a} $</td>
+<td><code>~a</code> （全集为二进制都是 1）</td>
+</tr>
+<tr>
+<td>差集</td>
+<td>$ a \setminus b $</td>
+<td>a &amp; (~b)</td>
+</tr>
+<tr>
+<td>对称差</td>
+<td>$ a \triangle b $</td>
+<td>a ^ b</td>
+</tr>
+</tbody></table>
+<h2 id="遍历某个集合的子集"><a href="#遍历某个集合的子集" class="headerlink" title="遍历某个集合的子集"></a>遍历某个集合的子集</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 遍历 u 的非空子集</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> s <span class="token operator">=</span> u<span class="token punctuation">;</span> s<span class="token punctuation">;</span> s <span class="token operator">=</span> <span class="token punctuation">(</span>s <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> u<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// s 是 u 的一个非空子集</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>用这种方法可以在 $ o(2^{popcount(u)}) $（ 表示 二进制中 1 的个数）的时间复杂度内遍历 的子集，进而可以在 的时间复杂度内遍历大小为 的集合的每个子集的子集。（复杂度为 是因为每个元素都有 不在大子集中/只在大子集中/同时在大小子集中 三种状态。）</p>
 
                 
             </div>
@@ -664,7 +701,7 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hongfei521.github.io/2021/01/26/%E6%8C%87%E9%92%88/">http://hongfei521.github.io/2021/01/26/%E6%8C%87%E9%92%88/</a>
+                    <a href="http://hongfei521.github.io/2021/02/04/C%E8%AF%AD%E8%A8%80-%E6%95%B0%E5%AD%A6/">http://hongfei521.github.io/2021/02/04/C%E8%AF%AD%E8%A8%80-%E6%95%B0%E5%AD%A6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -708,6 +745,10 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
                             
                                 <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
                                     <span class="chip bg-color">程序设计</span>
+                                </a>
+                            
+                                <a href="/tags/ACM/">
+                                    <span class="chip bg-color">ACM</span>
                                 </a>
                             
                         </div>
@@ -1142,17 +1183,18 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/28/%E6%8C%87%E9%92%88-%E4%BA%8C/">
+                <a href="/2021/02/04/C%E8%AF%AD%E8%A8%80-%E6%95%B0%E5%AD%A6/">
                     <div class="card-image">
                         
                         
-                        <img src="https://hongfei521.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="指针(二)">
+                        <img src="https://hongfei521.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="C语言-数学-位运算">
                         
-                        <span class="card-title">指针(二)</span>
+                        <span class="card-title">C语言-数学-位运算</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1162,21 +1204,22 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" class="post-category">
-                                    学习经历
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    个人笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1186,6 +1229,10 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
                     
                     <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
                         <span class="chip bg-color">程序设计</span>
+                    </a>
+                    
+                    <a href="/tags/ACM/">
+                        <span class="chip bg-color">ACM</span>
                     </a>
                     
                 </div>
@@ -1199,13 +1246,13 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/23/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B6%E4%BD%9C/">
+                <a href="/2021/02/04/python/">
                     <div class="card-image">
                         
                         
-                        <img src="https://hongfei521.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="个人博客制作">
+                        <img src="https://hongfei521.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="python">
                         
-                        <span class="card-title">个人博客制作</span>
+                        <span class="card-title">python</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1216,14 +1263,14 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" class="post-category">
-                                    学习经历
+                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%BB%8F%E5%8E%86/" class="post-category">
+                                    自学经历
                                 </a>
                             
                             
@@ -1233,12 +1280,12 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
+                    <a href="/tags/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">高级程序语言</span>
                     </a>
                     
                 </div>
@@ -1406,13 +1453,6 @@ p <span class="token operator">=</span> <span class="token punctuation">(</span>
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
