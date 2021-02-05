@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="指针(二), 马鸿飞的博客">
+    <meta name="keywords" content="Python(二), 马鸿飞的博客">
     <meta name="description" content="Cease to struggle and you cease to live.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>指针(二) | 马鸿飞的博客</title>
+    <title>Python(二) | 马鸿飞的博客</title>
     <link rel="icon" type="image/png" href="https://hongfei521.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://hongfei521.github.io/libs/awesome/css/all.css">
@@ -358,12 +358,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://hongfei521.github.io/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://hongfei521.github.io/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">指针(二)</h1>
+                    <h1 class="description center-align post-title">Python(二)</h1>
                 </div>
             </div>
         </div>
@@ -479,12 +479,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C%E8%AF%AD%E8%A8%80/">
-                                <span class="chip bg-color">C语言</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                <span class="chip bg-color">程序设计</span>
+                            <a href="/tags/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">高级程序语言</span>
                             </a>
                         
                     </div>
@@ -495,8 +495,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" class="post-category">
-                                学习经历
+                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%BB%8F%E5%8E%86-%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" class="post-category">
+                                -"自学经历" -"个人笔记"
                             </a>
                         
                     </div>
@@ -508,7 +508,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-02-05
                 </div>
                 
 
@@ -517,14 +517,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    621
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    2 分
                 </div>
                 
 
@@ -547,177 +547,57 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="五、指针与数组"><a href="#五、指针与数组" class="headerlink" title="五、指针与数组"></a><strong>五、指针与数组</strong></h2><p>在C语言中，指针与数组之间的关系十分密切。实际上，许多可以用数组完成的工作都可以使用指针来完成。一般来说，用指针编写的程序比用数组编写的程序执行速度快，但另一方面，用指针实现的程序理解起来稍微困难一些。</p>
-<h3 id="5-1-指针与数组的关系"><a href="#5-1-指针与数组的关系" class="headerlink" title="5.1 指针与数组的关系"></a><strong>5.1 指针与数组的关系</strong></h3><p>我们先声明一个数组：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// 声明一个int类型的数组，这个数组有10个元素</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>我们可以用 a[0]、a[1]、…、a[9] 来表示这个数组中的10个元素，这10个元素是存储在一段连续相邻的内存区域中的。</p>
-<p>　　接下来，我们再声明一个指针：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>           <span class="token comment">// 声明一个int类型的指针变量</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p> p 是一个指针变量，指向内存中的一个区域。如果我们对指针 p 做如下的初始化：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// 对指针进行初始化，p将指向数组 a 的第 1 个元素 a[0]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>我们知道，对指针进行自增操作会让指针指向与当前元素相邻的下一个元素，即 <em>(p + 1) 将指向 a[1] ；同样的， <em>(p + i) 将指向 a[i] 。因此，我们可以使用该指针来遍历数组 a[10] 的所有元素。可以看到，数组下标与指针运算之间的关系是一一对应的。而根据定义，</em></em>数组类型的变量或表达式的值是该数组第 1 个元素的地址**，且数组名所代表的的就是该数组第 1 个元素的地址，故，上述赋值语句可以直接写成：</p>
-<pre class="line-numbers language-none"><code class="language-none">p &#x3D; a;        &#x2F;&#x2F; a 为数组名，代表该数组最开始的一个元素的地址 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>很显然，<strong>一个通过数组和下标实现的表达式可以等价地通过指针及其偏移量来实现</strong>，这就是数组和指针的互通之处。但有一点要明确的是，数组和指针并不是完全等价，<em>指针是一个变量，而数组名不是变量，它数组中第 1 个元素的地址</em>，数组可以看做是一个用于保存变量的容器。更直接的方法，我们可以直接看二者的地址，并不一样：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span>                                                                          </span>
+                <h1 id="Python-变量类型"><a href="#Python-变量类型" class="headerlink" title="Python 变量类型"></a>Python 变量类型</h1><p>变量存储在内存中的值，这就意味着在创建变量时会在内存中开辟一个空间。</p>
+<p>基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。</p>
+<p>因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。</p>
+<h2 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h2><p>Python 中的变量赋值不需要类型声明。</p>
+<p>每个变量在内存中创建，都包括变量的标识，名称和数据这些信息。</p>
+<p>每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。</p>
+<p>等号 <code>=</code> 用来给变量赋值。</p>
+<p>等号 <code>=</code> 运算符左边是一个变量名，等号 <code>=</code> 运算符右边是存储在变量中的值。例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+<span class="token comment"># -*- coding: UTF-8 -*-</span>
  
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> x<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> x<span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"x的地址为：%p\n"</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"x[0]的地址为：%p\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"p的地址为：%p\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　　　<span class="token comment">// 打印指针 p 的地址，并不是指针所指向的地方的地址</span>
-
-    p <span class="token operator">+=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"*(p+2)的值为：%d\n"</span><span class="token punctuation">,</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　<span class="token comment">// 输出结果为 3，*(p+2)指向了 x[2]</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>结果如下：</p>
-<p><img src="https://img2018.cnblogs.com/blog/765389/201809/765389-20180918160417548-189120951.png"></p>
-<p>可以看到， x 的值与 x[0] 的地址是一样的，也就是说数组名即为数组中第 1 个元素的地址。实际上，打印 &amp;x 后发现，x 的地址也是这个值。而 x 的地址与指针变量 p 的地址是不一样的。故而数组和指针并不能完全等价。</p>
-<p>（笔者注：上述输出结果是在 centos7 64bit 的环境下使用 gcc 编译器得到的，可以看到地址是一个12位的十六进制数，转换成二进制是48位，也就是说寻址空间有 256TB，但是笔者的电脑只有 8GB 内存，猜测是不是由于 linux 系统开启了内存分页机制，这里寻址的是虚拟地址？另外，在Windows下使用 vs2015 编译运行的话，则输出结果是一个 8位的十六进制数，也就是32位二进制，寻址空间为 4GB） </p>
-<h3 id="5-2-指针数组"><a href="#5-2-指针数组" class="headerlink" title="5.2 指针数组"></a><strong>5.2 指针数组</strong></h3><p>指针是一个变量，而数组是用于存储变量的容器，因此，指针也可以像其他变量一样存储在数组中，也就是指针数组。 <strong>指针数组是一个数组，数组中的每一个元素都是指针</strong>。声明一个指针数组的方法如下：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment">// 声明一个指针数组，该数组有10个元素，其中每个元素都是一个指向int类型的指针</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在上述声明中，由于 [] 的优先级比 * 高，故 p 先与 [] 结合，成为一个数组 p[]；再由 int * 指明这是一个 int 类型的指针数组，数组中的元素都是 int 类型的指针。数组的第 i 个元素是 *p[i]，而 <strong>p[i] 是一个指针</strong>。由于指针数组中存放着多个指针，操作灵活，在一些需要操作大量数据的程序中使用，可以使程序更灵活快速。</p>
-<h3 id="5-3-数组指针"><a href="#5-3-数组指针" class="headerlink" title="5.3 数组指针"></a><strong>5.3 数组指针</strong></h3><p><strong>数组指针是一个指针，它指向一个数组</strong>。声明一个数组指针的方法如下：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// 声明一个数组指针 p ，该指针指向一个数组</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>由于 () 的优先级最高，所以 p 是一个指针，指向一个 int 类型的一维数组，这个一维数组的长度是 10，这也是指针 p 的步长。也就是说，执行 p+1 时，p 要跨过 n 个 int 型数据的长度。数组指针与二维数组联系密切，可以用数组指针来指向一个二维数组，如下：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
+counter <span class="token operator">=</span> <span class="token number">100</span> <span class="token comment"># 赋值整型变量</span>
+miles <span class="token operator">=</span> <span class="token number">1000.0</span> <span class="token comment"># 浮点型</span>
+name <span class="token operator">=</span> <span class="token string">"John"</span> <span class="token comment"># 字符串</span>
  
- <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-     <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>               <span class="token comment">// 定义一个二维数组并初始化</span>
-     <span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                                 <span class="token comment">// 定义一个数组指针，指针指向一个含有3个元素的一维数组</span>
- 
-     p <span class="token operator">=</span> arr<span class="token punctuation">;</span>                     <span class="token comment">// 将二维数组的首地址赋给 p，此时 p 指向 arr[0] 或 &amp;arr[0][0]</span>
-     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　　　　　　　　　  <span class="token comment">// 输出结果为 1</span>
-     p<span class="token operator">++</span><span class="token punctuation">;</span>　　　　　　　　　<span class="token comment">// 对 p 进行算术运算，此时 p 将指向二维数组的下一行的首地址，即 &amp;arr[1][0]</span>
-     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment">// 输出结果为5</span>
- 
-     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>                                                                               
- <span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="六、指针与结构"><a href="#六、指针与结构" class="headerlink" title="六、指针与结构"></a><strong>六、指针与结构</strong></h2><h3 id="6-1-简单介绍一下结构"><a href="#6-1-简单介绍一下结构" class="headerlink" title="6.1 简单介绍一下结构"></a><strong>6.1 简单介绍一下结构</strong></h3><p>结构是一个或多个变量的集合，这些变量可能为不同的类型，为了处理的方便而将这些变量组织在一个名字之下。由于结构将一组相关的变量看做一个单元而不是各自独立的实体，因此结构有助于组织复杂的数据，特别是在大型的程序中。声明一个结构的方式如下：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">message</span><span class="token punctuation">&#123;</span>　　　　　　      <span class="token comment">// 声明一个结构 message</span>
-    <span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>             <span class="token comment">// 成员</span>
-    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> score<span class="token punctuation">;</span>  
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">message</span> s_message<span class="token punctuation">;</span>　　　　 <span class="token comment">// 类型定义符 typedef</span>
-
-s_message mess <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"tongye"</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">83</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token comment">// 声明一个 struct message 类型的变量 mess,并对其进行初始化　</span>
-
-<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
-<span class="token comment">/* 另一种更简便的声明方法 */</span>
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span>
-　　<span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-　　<span class="token keyword">int</span> age<span class="token punctuation">;</span>
-　　<span class="token keyword">int</span> score<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>message<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以使用 <strong>结构名.成员</strong> 的方式来访问结构中的成员，如下：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-　　<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>mess<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　<span class="token comment">// 输出结果：tongye</span>
-　　<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>mess<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　 <span class="token comment">// 输出结果：23</span>
-
-　　<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="6-2-结构指针"><a href="#6-2-结构指针" class="headerlink" title="6.2 结构指针"></a><strong>6.2 结构指针</strong></h3><p>结构指针是指向结构的指针，以上面的结构为例，可以这样定义一个结构指针：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">s_message <span class="token operator">*</span>p<span class="token punctuation">;</span>        <span class="token comment">// 声明一个结构指针 p ，该指针指向一个 s_message 类型的结构</span>
-<span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>mess<span class="token punctuation">;</span>　　　　　　<span class="token comment">// 对结构指针的初始化与普通指针一样，也是使用取地址符 &amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>C语言中使用 -&gt; 操作符来访问结构指针的成员，举个例子：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> score<span class="token punctuation">;</span>  
-<span class="token punctuation">&#125;</span>message<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    message mess <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"tongye"</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">83</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    message <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>mess<span class="token punctuation">;</span>
-
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>p<span class="token operator">-></span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　　　<span class="token comment">// 输出结果为：tongye</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>p<span class="token operator">-></span>score<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// 输出结果为：83</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="七、指针与函数"><a href="#七、指针与函数" class="headerlink" title="七、指针与函数"></a><strong>七、指针与函数</strong></h2><p><strong>C语言的所有参数均是以“传值调用”的方式进行传递的</strong>，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。</p>
-<h3 id="7-1-指针作为函数的参数"><a href="#7-1-指针作为函数的参数" class="headerlink" title="7.1 指针作为函数的参数"></a><strong>7.1 指针作为函数的参数</strong></h3><p>传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。<strong>指针参数使得被调函数能够访问和修改主调函数中对象的值。</strong>用一个例子来说明：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-
-<span class="token keyword">void</span> <span class="token function">swap1</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span>　　　　　　  <span class="token comment">// 参数为普通的 int 变量</span>
-<span class="token punctuation">&#123;</span>
-　　<span class="token keyword">int</span> temp<span class="token punctuation">;</span>
-　　temp <span class="token operator">=</span> a<span class="token punctuation">;</span>
-　　a <span class="token operator">=</span> b<span class="token punctuation">;</span>
-　　b <span class="token operator">=</span> temp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">void</span> <span class="token function">swap2</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>a<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">*</span>b<span class="token punctuation">)</span>　　　　　　<span class="token comment">// 参数为指针，接受调用函数传递过来的变量地址作为参数，对所指地址处的内容进行操作</span>
-<span class="token punctuation">&#123;</span>
-　　<span class="token keyword">int</span> temp<span class="token punctuation">;</span>　　　　                <span class="token comment">// 最终结果是，地址本身并没有改变，但是这一地址所对应的内存段中的内容发生了变化，即x,y的值发生了变化</span>
-　　temp <span class="token operator">=</span> <span class="token operator">*</span>a<span class="token punctuation">;</span>
-　　<span class="token operator">*</span>a <span class="token operator">=</span> <span class="token operator">*</span>b<span class="token punctuation">;</span>
-　　<span class="token operator">*</span>b <span class="token operator">=</span> temp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-　　<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-　　<span class="token function">swap1</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>                     <span class="token comment">// 将 x,y 的值本身作为参数传递给了被调函数</span>
-　　<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %5d\n"</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// 输出结果为：1     2</span>
-
-　　<span class="token function">swap</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment">// 将 x,y 的地址作为参数传递给了被调函数，传递过去的也是一个值，与传值调用不冲突</span>
-　　<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %5d\n"</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// 输出结果为：2     1</span>
-　　<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="7-2-指向函数的指针"><a href="#7-2-指向函数的指针" class="headerlink" title="7.2 指向函数的指针"></a><strong>7.2 指向函数的指针</strong></h3><p>在C语言中，函数本身不是变量，但是可以定义指向函数的指针，也称作函数指针，函数指针指向函数的入口地址。这种类型的指针可以被赋值、存放在数组中、传递给函数以及作为函数的返回值等等。 声明一个函数指针的方法如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">返回值类型 （* 指针变量名）（[形参列表]）;
-
-int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>上述代码声明了一个函数指针 pointer ，该指针指向一个函数，函数具有两个 int * 类型的参数，且返回值类型为 int。下面的代码演示了函数指针的用法：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stdio.h"</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"string.h"</span></span>
-
-<span class="token keyword">int</span> <span class="token function">str_comp</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>m<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>                             <span class="token comment">// 声明一个函数 str_comp，该函数有两个 const char 类型的指针，函数的返回值为 int 类型</span>
-<span class="token keyword">void</span> <span class="token function">comp</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>a<span class="token punctuation">,</span><span class="token keyword">char</span> <span class="token operator">*</span>b<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>prr<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 声明一个函数 comp ,注意该函数的第三个参数，是一个函数指针</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">char</span> str1<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>      <span class="token comment">// 声明一个字符数组</span>
-    <span class="token keyword">char</span> str2<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">=</span> str_comp<span class="token punctuation">;</span>　　　　　　　　　　　 <span class="token comment">// 声明并初始化一个函数指针，该指针所指向的函数有两个 const char 类型的指针，且返回值为 int 类型</span>
-    <span class="token function">gets</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// 使用 gets() 函数从 I/O 读取一行字符串</span>
-    <span class="token function">gets</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">comp</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span>str2<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 函数指针 p 作为参数传给 comp 函数</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">int</span> <span class="token function">str_comp</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>m<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>n<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-　　 <span class="token comment">// 库函数 strcmp 用于比较两个字符串，其原型是： int strcmp(const char *s1,const char *s2);</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strcmp</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> 
-        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span>
-        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">/* 函数 comp 接受一个函数指针作为它的第三个参数 */</span>
-<span class="token keyword">void</span> <span class="token function">comp</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>a<span class="token punctuation">,</span><span class="token keyword">char</span> <span class="token operator">*</span>b<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>prr<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>prr<span class="token punctuation">)</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"str1 = str2\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"str1 != str2\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​        这段代码的功能是从键盘读取两行字符串（长度不超过20），判断二者是否相等。</p>
-<p>　　注意，声明一个函数指针时，() 不能漏掉，否则：</p>
-<pre class="line-numbers language-none"><code class="language-none">int *p(void *,void*);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这表明 p 是一个函数，该函数返回一个指向 int 类型的指针。</p>
+<span class="token keyword">print</span> counter
+<span class="token keyword">print</span> miles
+<span class="token keyword">print</span> name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>以上实例中，100，1000.0和”John”分别赋值给counter，miles，name变量。</p>
+<p>执行以上程序会输出如下结果：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token number">100</span>
+<span class="token number">1000.0</span>
+John<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="多个变量赋值"><a href="#多个变量赋值" class="headerlink" title="多个变量赋值"></a>多个变量赋值</h2><p>Python允许你同时为多个变量赋值。例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> b <span class="token operator">=</span> c <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>以上实例，创建一个整型对象，值为1，三个变量被分配到相同的内存空间上。</p>
+<p>您也可以为多个对象指定多个变量。例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"john"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>以上实例，两个整型对象 1 和 2 分别分配给变量 a 和 b，字符串对象 “john” 分配给变量 c。</p>
+<h2 id="标准数据类型"><a href="#标准数据类型" class="headerlink" title="标准数据类型"></a>标准数据类型</h2><p>在内存中存储的数据可以有多种类型。</p>
+<p>例如，一个人的年龄可以用数字来存储，他的名字可以用字符来存储。</p>
+<p>Python 定义了一些标准类型，用于存储各种类型的数据。</p>
+<p>Python有五个标准的数据类型：</p>
+<ul>
+<li>Numbers（数字）</li>
+<li>String（字符串）</li>
+<li>List（列表）</li>
+<li>Tuple（元组）</li>
+<li>Dictionary（字典）</li>
+</ul>
+<h2 id="Python-数字"><a href="#Python-数字" class="headerlink" title="Python 数字"></a>Python 数字</h2><p>数字数据类型用于存储数值。</p>
+<p>他们是不可改变的数据类型，这意味着改变数字数据类型会分配一个新的对象。</p>
+<p>当你指定一个值时，Number 对象就会被创建：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">var1 <span class="token operator">=</span> <span class="token number">1</span>
+var2 <span class="token operator">=</span> <span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>您也可以使用del语句删除一些对象的引用。</p>
+<p>del语句的语法是：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">del</span> var1<span class="token punctuation">[</span><span class="token punctuation">,</span>var2<span class="token punctuation">[</span><span class="token punctuation">,</span>var3<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>varN<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>您可以通过使用del语句删除单个或多个对象的引用。例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">del</span> var
+<span class="token keyword">del</span> var_a<span class="token punctuation">,</span> var_b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -744,7 +624,7 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hongfei521.github.io/2021/01/28/%E6%8C%87%E9%92%88-%E4%BA%8C/">http://hongfei521.github.io/2021/01/28/%E6%8C%87%E9%92%88-%E4%BA%8C/</a>
+                    <a href="http://hongfei521.github.io/2021/02/05/Python-%E4%BA%8C/">http://hongfei521.github.io/2021/02/05/Python-%E4%BA%8C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -782,12 +662,12 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C%E8%AF%AD%E8%A8%80/">
-                                    <span class="chip bg-color">C语言</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                    <span class="chip bg-color">程序设计</span>
+                                <a href="/tags/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">高级程序语言</span>
                                 </a>
                             
                         </div>
@@ -1222,17 +1102,18 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/04/python/">
+                <a href="/2021/02/05/Python-%E4%BA%8C/">
                     <div class="card-image">
                         
                         
-                        <img src="https://hongfei521.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="python(一)">
+                        <img src="https://hongfei521.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="Python(二)">
                         
-                        <span class="card-title">python(一)</span>
+                        <span class="card-title">Python(二)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1242,9 +1123,9 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1257,6 +1138,7 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1279,13 +1161,13 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/26/%E6%8C%87%E9%92%88/">
+                <a href="/2021/02/04/C%E8%AF%AD%E8%A8%80-%E6%95%B0%E5%AD%A6/">
                     <div class="card-image">
                         
                         
-                        <img src="https://hongfei521.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="指针(一)">
+                        <img src="https://hongfei521.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="C语言-数学-位运算">
                         
-                        <span class="card-title">指针(一)</span>
+                        <span class="card-title">C语言-数学-位运算</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1296,14 +1178,14 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" class="post-category">
-                                    学习经历
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    个人笔记
                                 </a>
                             
                             
@@ -1319,6 +1201,10 @@ int (*pointer)(int *,int *);        &#x2F;&#x2F; 声明一个函数指针<span a
                     
                     <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
                         <span class="chip bg-color">程序设计</span>
+                    </a>
+                    
+                    <a href="/tags/ACM/">
+                        <span class="chip bg-color">ACM</span>
                     </a>
                     
                 </div>
