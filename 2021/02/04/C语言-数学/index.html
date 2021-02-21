@@ -519,14 +519,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -688,7 +688,23 @@
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> s <span class="token operator">=</span> u<span class="token punctuation">;</span> s<span class="token punctuation">;</span> s <span class="token operator">=</span> <span class="token punctuation">(</span>s <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> u<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// s 是 u 的一个非空子集</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>用这种方法可以在 $ o(2^{popcount(u)}) $（ 表示 二进制中 1 的个数）的时间复杂度内遍历 的子集，进而可以在 的时间复杂度内遍历大小为 的集合的每个子集的子集。（复杂度为 是因为每个元素都有 不在大子集中/只在大子集中/同时在大小子集中 三种状态。）</p>
+<p>用这种方法可以在 $ o(2^{popcount(u)}) $（ $popcount(u)$表示 $u$二进制中 1 的个数）的时间复杂度内遍历$u$ 的子集，进而可以在$O(3^n)$ 的时间复杂度内遍历大小为$n$ 的集合的每个子集的子集。（复杂度为$O(3^n)$是因为每个元素都有 不在大子集中/只在大子集中/同时在大小子集中 三种状态。）</p>
+<h1 id="内建函数"><a href="#内建函数" class="headerlink" title="内建函数"></a>内建函数</h1><p>GCC 中还有一些用于位运算的内建函数：</p>
+<ol>
+<li><code>int __builtin_ffs(int x)</code> ：返回$x$的二进制末尾最后一个$1$的位置，位置的编号从$1$开始（最低位编号为$1$）。当$x$为$0$时返回$0$ 。</li>
+<li><code>int __builtin_clz(unsigned int x)</code> ：返回$x$的二进制的前导$0$的个数。当$x$为$0$ 时，结果未定义。</li>
+<li><code>int __builtin_ctz(unsigned int x)</code> ：返回 $x$的二进制末尾连续 $0$的个数。当$x$为$0$时，结果未定义。</li>
+<li><code>int __builtin_clrsb(int x)</code> ：当$x$的符号位为$0$时返回$x$的二进制的前导$0$的个数减一，否则返回$x$的二进制的前导$1$的个数减一。 </li>
+<li><code>int __builtin_popcount(unsigned int x)</code> ：返回$x$的二进制中$1$的个数。 </li>
+<li><code>int __builtin_parity(unsigned int x)</code> ：判断$x$的二进制中$1$的个数的奇偶性。     </li>
+</ol>
+<p>这些函数都可以在函数名末尾添加 <code>l</code> 或 <code>ll</code> （如 <code>__builtin_popcountll</code> ）来使参数类型变为 ( <code>unsigned</code> ) <code>long</code> 或 ( <code>unsigned</code> ) <code>long long</code> （返回值仍然是 <code>int</code> 类型）。 例如，我们有时候希望求出一个数以二为底的对数，如果不考虑 <code>0</code> 的特殊情况，就相当于这个数二进制的位数 <code>-1</code> ，而一个数 <code>n</code> 的二进制表示的位数可以使用 <code>32-__builtin_clz(n)</code> 表示，因此 <code>31-__builtin_clz(n)</code> 就可以求出 <code>n</code> 以二为底的对数。</p>
+<p>由于这些函数是内建函数，经过了编译器的高度优化，运行速度十分快（有些甚至只需要一条指令）。</p>
+<h1 id="更多位数"><a href="#更多位数" class="headerlink" title="更多位数"></a>更多位数</h1><p>如果需要操作的集合非常大，可以使用 <a href="">bitset</a> </p>
+<h1 id="题目推荐"><a href="#题目推荐" class="headerlink" title="题目推荐"></a>题目推荐</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1225">Luogu P1225 黑白棋游戏</a></p>
+<h1 id="参考资料与注释"><a href="#参考资料与注释" class="headerlink" title="参考资料与注释"></a>参考资料与注释</h1><ol>
+<li>位运算技巧： <a target="_blank" rel="noopener" href="https://graphics.stanford.edu/~seander/bithacks.html">https://graphics.stanford.edu/~seander/bithacks.html</a></li>
+</ol>
 
                 
             </div>
@@ -1548,7 +1564,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.5k</span>&nbsp;字
+                class="white-color">10.9k</span>&nbsp;字
             
             
             
